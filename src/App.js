@@ -10,7 +10,7 @@ import {
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={'/chatApp'}>
       <div>
         <ul>
           <li>
@@ -25,13 +25,13 @@ export default function App() {
         </ul>
 
         <Switch>
-          <Route path="/about">
+          <Route path={`${process.env.PUBLIC_URL}/about`}>
             <About />
           </Route>
-          <Route path="/topics">
+          <Route path={`${process.env.PUBLIC_URL}/topics`}>
             <Topics />
           </Route>
-          <Route path="/">
+          <Route path={`${process.env.PUBLIC_URL}/`}>
             <Home />
           </Route>
         </Switch>
@@ -57,10 +57,12 @@ function Topics() {
 
       <ul>
         <li>
-          <Link to={`${match.url}/components`}>Components</Link>
+          <Link to={`${process.env.PUBLIC_URL}/components`}>Components</Link>
         </li>
         <li>
-          <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+          <Link to={`${process.env.PUBLIC_URL}/props-v-state`}>
+            Props v. State
+          </Link>
         </li>
       </ul>
 
